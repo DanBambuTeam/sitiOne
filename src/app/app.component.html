@@ -1,32 +1,29 @@
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SitiOne</title>
-</head>
-<body>
-  <h1>Formulario</h1>
- <form action="">
 
-   <div class="input.group">
-      <label for="name">Nombre: </label>
-      <input type="text" id="name" [(ngModel)] = "register.name">
-      <p>Mensajes de error</p>
+<h1>Formulario</h1>
+<form (ngSubmit)="onRegister()" #myForm ="ngForm">
+
+    <div class="input_group">
+        <label for="name">Nombre: </label>
+        <input type="text" name = "name"  required #nameInput = "ngModel" id="name" [(ngModel)] = "register.name">
+        <p class="mensaje-error" [class.invalid] = "nameInput.invalid">
+          No has ingresado tu nombre de Usuario
+        </p>
+    </div>
+    <div class="input_group">
+      <label for="email">e-mail: </label>
+      <input type="text" name = "email" required #emailInput = "ngModel" id="email" [(ngModel)] = "register.email">
+      <p class="mensaje-error" [class.invalid] = "emailInput.invalid">
+        No has ingresado un email valido
+      </p>
    </div>
-   <div class="input.group">
-    <label for="email">e-mail: </label>
-    <input type="text" id="email" [(ngModel)] = "register.email">
-    <p>Mensajes de error</p>
- </div>
- <div class="input.group">
-  <label for="password">Password: </label>
-  <input type="text" id="password" [(ngModel)] = "register.password">
-  <p>Mensajes de error</p>
-</div>
+   <div class="input_group">
+      <label for="password">Password: </label>
+      <input type="password" name = "password" required #passwordInput = "ngModel" id="password" [(ngModel)] = "register.password">
+      <p class="mensaje-error" [class.invalid] = "passwordInput.invalid">
+        No has ingresado tu contraseña
+      </p>
+   </div>
+  <button [disabled]="myForm.invalid" type="submit" >Register</button>
+  <button type="button">Accion</button>
 
- </form>
-
-
-</body>
-</html>
+</form>

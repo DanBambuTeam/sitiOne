@@ -1,3 +1,4 @@
+import { ExpressionBinding } from '@angular/compiler';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,6 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'sitiOne';
+
+  validateEmail = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+
 
   person = {
     name: `Daniel`,
@@ -20,4 +24,13 @@ export class AppComponent {
     password: '',
   }
 
+
+
+  onRegister() {
+    console.log(this.register);
+  }
+
+
+
 }
+
